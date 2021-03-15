@@ -1,0 +1,80 @@
+{% load crispy_forms_tags %}
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Dommy Fathela">
+  <meta name="generator" content="Jekyll v4.1.1">
+  <title>User Registration</title>
+
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    body {
+      background: url("../../static/images/high.jpg");
+      background-repeat: repeat;
+      color: ivory;
+    }
+
+    .col-md-10 {
+      border: 2px solid rgb(43, 43, 105);
+      margin: auto;
+      padding-left: 50px;
+      margin-top: 50px;
+      padding-bottom: 30px;
+    }
+
+    ::-webkit-scrollbar {
+      font-size: 3px;
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      font-size: 3px;
+      width: 50%;
+      background: #aaa;
+    }
+
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #fff;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: rgb(38, 44, 77);
+    }
+  </style>
+  <link href="{% static 'css/form-validation.css' %}" rel="stylesheet">
+</head>
+
+<body style='background-image: url("/static/images/high.jpg");'>
+  {% include 'user/navbar.html' %}
+  <div class="container" style="margin: auto;">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="{% static 'js/jquery.js' %}" crossorigin="anonymous"></script>
+  <script src="{% static 'js/form-validation.js'%}"></script>
+</body>
+
+</html>

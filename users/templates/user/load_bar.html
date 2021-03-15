@@ -1,0 +1,65 @@
+{% load static  %}
+<style>
+    .load-bar {
+        animation-name: anime;
+        animation-direction: initial;
+        height: 3px;
+        width: 100%;
+        animation-duration: 2s;
+        animation-delay: 20ms;
+        animation-iteration-count: 1;
+        position: relative;
+        background: rgba(0, 0, 0, 0.767)
+    }
+
+    @keyframes anime {
+        0% {
+            width: 0%;
+            background: #000;
+        }
+
+        15%{
+            width: 50%;
+            background: #b86b8b;
+        }
+
+        25% {
+            width: 25%;
+            background: #3fff3f;
+        }
+
+        35%{
+            width: 50%;
+            background: red;
+        }
+
+        50% {
+            width: 50%;
+            background: #ed00fe;
+        }
+
+        65%{
+            width: 50%;
+            background: #fe000025;
+        }
+
+        75% {
+            width: 75%;
+            background: #9900fe;
+        }
+
+        85%{
+            width: 85%;
+            background: #3fff3f;
+        }
+
+        100% {
+            width: 100%;
+            display: none;
+            background: rgba(0, 0, 0, 0.534);
+        }
+    }
+</style>
+
+<div class="load-bar" id="load-bar">
+</div>

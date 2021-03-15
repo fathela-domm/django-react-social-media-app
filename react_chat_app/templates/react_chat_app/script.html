@@ -1,0 +1,150 @@
+{% load static %}
+<!-- script sources  -->
+<script src="{% static 'js/loadApi.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/homeHeaderComponent.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/homeProfileComponent.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/homeTweetsComponent.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/homeTrendsComponent.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/searchChatStudio.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/navbarBottomComponent.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/HomeComponentsRenderer.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/screamCreation.jsx' %}" type="text/babel"></script>
+<script src="{% static 'js/deleteData.jsx' %}" type="text/babel"></script>
+<script src="../../static/js/homeTweetsComponent.jsx" type="text/babel"></script>
+<script src="../../static/js/postData.jsx" type="text/babel"></script>
+<script src="../../static/js/updateData.jsx" type="text/babel"></script>
+<script src="../../static/js/updateScreams.jsx" type="text/babel"></script>
+<script src="../../static/js/updateComments.jsx" type="text/babel"></script>
+<!-- script handler -->
+<script type="text/babel">
+
+    /* Passing data from django=>react */
+    const user = "{{request.user}}";
+    const logo_image = "{% static 'images/logo.png' %}";
+    const csrf_token = "{{ csrf_token }}";
+    const uid = "{{request.user.id}}";
+    renderComponents(logo_image, user, csrf_token, uid);
+    $("document").ready(function () {
+        setTimeout(() => {
+            $(".navbar-bottom").show();
+            $(".trends").show();
+
+            $(".drops-up-link").mouseover(() => {
+                $(".list-drops-up").show();
+            });
+
+            $(".bottom-toggler").mouseover(() => {
+                $(".list-drops-up").show();
+            });
+
+            $(".bottom-toggler").click(() => {
+                $(".list-drops-up").show();
+            });
+
+            $(".search-section").mouseover(() => {
+                $(".list-drops-up").hide();
+            });
+
+            $(".my-tweets").mouseover(() => {
+                $(".list-drops-up").hide();
+            });
+            $(".navbar-bottom-left").mouseleave(() => {
+                $(".list-drops-up").hide();
+            });
+        }, 2000);
+        $(".navbar-right").mouseover(() => {
+            $(".nav-link-item").css("display", "initial");
+        });
+        // $(".horizontal-line").mouseleave(() => {
+        //     $(".nav-link-item").css("display", "initial");
+        // });
+        $(".navbar-right").mouseleave(() => {
+            $(".nav-link-item").css("display", "none");
+        });
+        $(".main").mouseover(() => {
+            $(".nav-link-item").css("display", "none");
+        });
+        $(".container").mouseover(() => {
+            $(".nav-link-item").css("display", "none");
+        });
+        $("body").mouseleave(() => {
+            $(".nav-link-item").css("display", "none");
+        });
+
+        $(".left").replaceWith($(".replace"));
+        $(".toggle-btn").click(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "initial");
+            }
+        });
+        $(".container").click(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+
+        $("body").mouseover(() => {
+            if (window.outerWidth >= 570) {
+                $(".navbar-brand").css("display", "initial");
+            }
+            else if ((window.outerWidth <= 570)) {
+                $(".navbar-brand").css("display", "none");
+
+            }
+        });
+        if (window.outerWidth >= 570) {
+            $(".navbar-brand").css("display", "initial");
+        }
+        else if ((window.outerWidth <= 570)) {
+            $(".navbar-brand").css("display", "none");
+
+        }
+
+        $("body").mouseleave(() => {
+            if (window.outerWidth >= 570) {
+                $(".navbar-brand").css("display", "initial");
+            }
+            else if ((window.outerWidth <= 570)) {
+                $(".navbar-brand").css("display", "none");
+
+            }
+        });
+
+        $("main").click(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+
+        $(".toggle-btn").mouseover(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "initial");
+            }
+        });
+
+        $("body").mouseleave(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+
+        $(".replace").mouseover(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+
+        $(".body").click(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+
+        $(".list-for-small-screen").mouseleave(() => {
+            if (window.outerWidth <= 570) {
+                $(".justify-right").css("display", "none");
+            }
+        });
+    });
+
+</script>

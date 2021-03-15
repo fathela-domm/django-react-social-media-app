@@ -1,0 +1,134 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="blog template">
+    <meta name="author" content="Kamau Dommy Fathela">
+
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <link href="{%static 'css/bootstrap.min.css'%}" rel="stylesheet">
+    <link href="{%static 'css/styles.css'%}" rel="stylesheet">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+
+    <script src='{%static "js/babel.min.js"%}'></script>
+    <script src='{%static "js/jquery.js"%}'></script>
+    <script src="{% static 'js/react.development.js' %}"></script>
+    <script src="{% static 'js/react-dom.development.js' %}"></script>
+    <script src="{% static 'js/react-dom.development.js' %}"></script>
+    <title>Zee370 Chat Studio BlogRoom</title>
+</head>
+
+<body>
+    <header id="navbar">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="links">
+                <div class="navbar-left mt-2">
+                    <a href="?" style="font-size:small;" class="navbar-brand nav navstyle">Zee370[home]</a>
+                </div>
+                <div class="navbar-right show">
+                    <div class="more-actions collapse navbar-collapse" id="navbarToggle"><a href="#">More
+                            Actions</a></div>
+                    <ul class="collapse navbar-collapse list-drops-down">
+                        {% if request.user.is_authenticated %}
+                        <ul class="drop-down">
+                            <li class="collapse navbar-collapse"><a class="nav-link-item first" href="#">Tweet</a></li>
+                            <li class="collapse navbar-collapse"><a class="nav-link-item" href="#">Settings</a>
+                            </li>
+                            <li class="collapse navbar-collapse"><a class="nav-link-item" href="#">Logout</a></li>
+                            <li class="collapse navbar-collapse"><a class="nav-link-item last" href="#">@About</a></li>
+                        </ul>
+                        {% else %}
+                        <ul class="drop-down">
+                            <li class="collapse navbar-collapse"><a class="nav-link-item first" href="#">@about</a></li>
+                            <li class="collapse navbar-collapse"><a class="nav-link-item" href="#">register</a>
+                            </li>
+                            <li class="collapse navbar-collapse"><a class="nav-link-item last" href="#">login</a></li>
+                        </ul>
+                        {% endif %}
+                    </ul>
+                </div>
+                <button class="navbar-toggler toggle-btn" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </div>
+        </nav>
+        <hr class="horizontal-line" />
+    </header>
+    {% if messages %}
+    <span class="messages col-md-7">
+        {% for m in messages %}
+        <li class="{%if m.tags %}{{m.tags}}{% endif %} text-success">{{m}}</li>
+        {% endfor %}
+    </span>
+    {% endif %}
+    <div class="container">
+        <div class="small-screen-header">
+            <div class="left"></div>
+            <div class="justify-right" style="display: none;">
+                {% if request.user.is_authenticated %}
+                <ul class="list-for-small-screen">
+                    <li class="small-screen first"><a class="nav-link-item-small" href="#">Home</a></li>
+                    <li class="small-screen"><a class="nav-link-item-small" href="#">About</a></li>
+                    <li class="small-screen"><a class="nav-link-item-small" href="#">Tweet</a></li>
+                    <li class="small-screen"><a class="nav-link-item-small" href="#">Settings</a></li>
+                    <li class="small-screen last"><a class="nav-link-item-small" href="#">Logout</a></li>
+                </ul>
+                {% else %}
+                <ul class="list-for-small-screen">
+                    <li class="small-screen first"><a class="nav-link-item-small" href="#">Home</a></li>
+                    <li class="small-screen"><a class="nav-link-item-small" href="#">About</a></li>
+                    <li class="small-screen"><a class="nav-link-item-small" href="#">Register</a></li>
+                    <li class="small-screen last"><a class="nav-link-item-small" href="#">Login</a></li>
+                </ul>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <main role="main" class="container-fluid">
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="navbar-bottom navbar-expand-md navbar-dark" style="display: none;">
+        <div class="navbar-bottom-left">
+            <div class="list-drops-up">
+                <ul class="list">
+                    <li class="list-component first anchorStyle">
+                        <a class="nav-link-item-bottom text-primary" href="#">Terms of Service</a>
+                    </li>
+                    <li class="list-component">
+                        <a class="nav-link-item-bottom text-primary" href="#">Privacy policy</a>
+                    </li>
+                    <li class="list-component">
+                        <a class="nav-link-item-bottom text-primary" href="#">Cookies</a>
+                    </li>
+                    <li class="list-component">
+                        <a class="nav-link-item-bottom text-primary" href="#">Ads info</a>
+                    </li>
+                    <li class="list-component last">
+                        <a class="nav-link-item-bottom last text-primary" href="#">&copy;fatheladomm</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="navbar-toggler bottom-toggler toggle-btn" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="more-actions-bottom collapse navbar-collapse" id="navbarToggle">
+                <a class="drops-up-link text-secondary" href="#">Other Options</a>
+            </div>
+        </div>
+        <div class="navbar-bottom-center">
+            <div class="collapse navbar-collapse about">
+                <a href="?" class="navbar-brand-about text-secondary">&copy;dommy fathela -kenya</a>
+            </div>
+        </div>
+        <div class="navbar-bottom-right">
+            <div class="collapse navbar-collapse about">
+                <a href="?" class="navbar-brand-about text-secondary">@about</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

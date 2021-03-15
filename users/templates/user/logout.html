@@ -1,0 +1,32 @@
+{% extends 'user/base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<style>
+    .jumbotron {
+        color: #ccc;
+        background: #4444;
+        border: 2px solid rgb(31, 30, 80);
+        margin-top: 100px;
+    }
+
+    form {
+        font-size: 15px;
+        font-family: Georgia;
+    }
+
+    body {
+        background: url("../../static/images/high.jpg");
+        background-repeat: repeat;
+        color: ivory;
+    }
+</style>
+<div class="jumbotron">
+    <h3 class="white-important">You've been logged out</h3>
+    <div class="pt-3">
+        <small class="text-muted">
+            Login again? <a class="ml-2" href="{% url 'login' %}">Login</a><br>
+            Go Home? <a class="ml-2" href="/">Click Me</a>
+        </small>
+    </div>
+</div>
+{% endblock %}
