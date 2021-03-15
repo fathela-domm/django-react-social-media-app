@@ -28,10 +28,10 @@ const UserProfileComponent = (props) => {
                         <span className="email text-secondary profile-text text-initial">Email: {element.email}</span>
                         <span className="followers text-secondary profile-text text-initial">Followers: {element.followers}</span>
                         <span className="following text-secondary profile-text text-initial">Following: {element.following}</span>
-                        {/* <div className="posts-screams mt-3 col-sm-12">
+                        <div className="posts-screams mt-3 col-sm-12">
                             <i onClick={handleClick} className="text-initial fas fa-comments"></i>
-                            <i className="text-initial fas fa-cogs">Posts</i>
-                        </div> */}
+                            {/* <i className="text-initial fas fa-cogs">Posts</i> */}
+                        </div> 
                     </div>
                 </legend>
             ) : null;
